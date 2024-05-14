@@ -1,0 +1,49 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+label, select, textarea, input[type="submit"] {
+    display: block;
+    margin-bottom: 10px;
+}
+
+select, textarea {
+    width: 100%;
+    padding: 5px;
+}
+
+textarea {
+  height: 100px;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  resize: none;
+}
+
+.inbox {
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+
+.message {
+    border: 2px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+}

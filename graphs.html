@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Line Chart</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Temperature Line Chart</h2>
+        <!-- Chart canvas -->
+        <canvas id="temperatureChart" width="400" height="200"></canvas>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script>
+        jQuery(document).ready(function($) {
+            // Fetch temperature data from the server
+            $.ajax({
+                url: 'get_temperature_data.php',
+                type: 'GET',
+                success: function(data) {
+                    // Process the data and create the chart
+                    createChart(data);
+                },
+                error: function(xhr, status, error) {
+                    console.error('Error fetching temperature data:', status, error);
+                }
+            });
+
+            // Function to create the line chart
+            function createChart(data) {
+                // Parse the JSON data
+                var parsedData = JSON.parse(data);
+
+                // Extract dates and temperatures from the data
+                var dates = parsedData.map(function(item) {
+                    return item.date;
+                });
+                var temperatures = parsedData.map(function(item) {
+                    return item.temperature;
+                });
+
+                // Create the line chart
+                var ctx = document.getElementById('temperatureChart').getContext('2d');
+                var chart = new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: dates,
+                        datasets: [{
+                            label: 'Temperature (°C)',
+                            data: temperatures,
+                            borderColor: 'red',
+                            fill: false
+                        }]
+                    },
+                    options: {
+                        scales: {
+                            x: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Date'
+                                }
+                            },
+                            y: {
+                                display: true,
+                                title: {
+                                    display: true,
+                                    text: 'Temperature (°C)'
+                                }
+                            }
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

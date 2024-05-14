@@ -1,0 +1,55 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+}
+
+.message-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 20px;
+    max-height: 300px; /* Adjust as needed */
+    overflow-y: auto;
+}
+
+.message {
+    background-color: #f2f2f2;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+}
+
+.message.sent {
+    background-color: #d1ecf1; /* Light blue for sent messages */
+}
+
+.message.received {
+    background-color: #d4edda; /* Light green for received messages */
+}
+
+.message-form {
+    margin-top: 20px;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}

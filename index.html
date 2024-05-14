@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Portal</title>
+  <link rel="stylesheet" href="css/hstyle.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to Health Portal</h1>
+    <p>Please select your role:</p>
+    <div class="role-selection">
+      <div class="role-icon">
+        <img src="img/doctor.svg" alt="Health Practitioner"> </div>
+      <button onclick="redirectToPractitionerPage()">Health Practitioner</button>
+      <div class="role-icon">
+        <img src="img/user.svg" alt="User"> </div>
+      <button onclick="redirectToUserPage()">User</button>
+    </div>
+  </div>
+
+  <script>
+    function redirectToPractitionerPage() {
+      window.location.href = "Doctor/doctorlogin.php";
+    }
+
+    function redirectToUserPage() {
+      window.location.href = "user/userlogin.php";
+    }
+  </script>
+</body>
+</html>
